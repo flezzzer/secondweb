@@ -1,0 +1,17 @@
+{% extends "home.html" %}
+{% block page %}
+    {% block title %}
+    <title>{{ restaurant.name }}</title>
+        {% endblock %}
+     <h3> {{ restaurant.name}} </h3>
+        {% if restaurant.id %}
+        {% endif %}
+        <div> {{ restaurant.description }}</div>
+        <h4>
+            <a href="{% url 'restaurant:category' restaurant.name category.name  %}">Меню</a>
+        </h4>
+        <a href="{{ restaurant.url }}"> {{ restaurant.url }}</a>
+{% endblock %}
+<body>
+
+</body>

@@ -1,0 +1,28 @@
+{% extends "home.html" %}
+{% block page %}
+
+        {% block title %}
+            <title>
+                {{ meal.name }}
+            </title>
+            {% endblock %}
+        <a href={{ meal.restaurant.url }}> {{ meal.restaurant}} </a>
+        <h2>{{ meal.category }}</h2>
+
+        <h3>{{ meal.name }}</h3>
+        <div>{{ meal.description }}</div>
+        <div>{{ meal.price }}</div>
+        <div>{{ meal.weight }}</div>
+        {% if meal.photo %}
+        <img src="{{ meal.photo.url }}" alt="{{ meal.name }}">
+        {% endif %}
+    <h2>Заказ</h2>
+    {% if sent %}
+        <h3>Блюдо "{{ meal.name }}" добавлено в ваш заказ!</h3>
+    {% endif %}
+    <form method="POST">{{ form.as_ul }}
+    {% csrf_token %}
+    <input type="submit" value="Добавить в заказ">
+    </form>
+
+{% endblock %}

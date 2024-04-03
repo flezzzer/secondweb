@@ -1,0 +1,30 @@
+{% extends "home.html" %}
+<head>
+    {% block title %}
+    <meta charset="UTF-8">
+    <title>Login</title>
+    {% endblock %}
+</head>
+
+{% block page %}
+    <body class="bg-olive">
+        <div class="container"  >
+        <div class="row ">
+        <br/>
+        <br/>
+        <br/>
+        <div class="col-lg-10">
+        <div class="card card-body">
+        <div class="card-body">
+    <h3 class="text-center text-uppercase ">Login IN</h3>
+        <b class="text-center text-uppercase">
+    <form method="post" class="text-center text-uppercase">
+        {% csrf_token %}
+        {{ form }}
+
+        <button type="submit" value="Sign up" class="btn btn-dark btn">Войти</button>
+    <p>Нет аккаунта? <a href="{% url "creators-sign-up" %}">Зарегистрироваться</a>
+    </p>
+
+{% endblock %}
+

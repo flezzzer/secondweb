@@ -1,0 +1,14 @@
+{% extends "home.html" %}
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+    <title>Restaurant</title>
+    {% endblock %}
+
+</head>
+<body>
+ <a href="{%  url 'logout' %}">Выйти из аккаунта</a>
+    {% block page %}
+    {% endblock %}
+</body>
+</html>

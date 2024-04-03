@@ -1,0 +1,34 @@
+{% extends "home.html" %}
+{% block title %}
+        <title>{{category.name}}</title>
+    {% endblock %}
+
+{% block page %}
+ <body class="bg-olive">
+    <div class="container"  >
+        <div class="row ">
+        <br/>
+        <br/>
+        <br/>
+        <div class="col-lg-10">
+        <div class="card card-body">
+        <div class="card-body">
+    <h3 class="text-center text-uppercase " style="color: white; background-color: black;">{{ category.name }}</h3>
+        <b class="text-center text-uppercase"> {{ category.description }}
+        </b>
+    {% for meal in meals %}
+        <p></p>
+        <a href="{% url "restaurant:meal_detail" restaurant.name meal.category meal.id %}">{{ meal.name }}</a>
+    {% endfor %}
+        </div>
+        </div>
+        </div>
+        </div>
+    </div>
+
+{% endblock %}
+ </body>
+
+
+
+

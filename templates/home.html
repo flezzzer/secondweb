@@ -1,0 +1,29 @@
+ {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+    <title>Home Page</title>
+    {% endblock %}
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+    <script src='{% static "js/bootstrap.min.js"%}'> </script>
+    <link rel="stylesheet" href="../static/css/mycss.css">
+</head>
+
+    <nav class="navbar navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="{% url "restaurant:restaurants" %}">
+      <img src="../media/restaurant/rest.png" alt="" width="50" height="48">
+        Restaurants
+    </a>
+      {% block auth %}
+      {% endblock %}
+   
+  </div>
+</nav>
+{% block page %}
+{% endblock %}
+
+
+</html>
