@@ -1,0 +1,31 @@
+{% extends 'creators/base.html' %}
+{% load bootstrap3 %}
+{% block title %} <title>Edit</title>
+{% endblock %}
+{% block page %}
+    <div class="col-lg-offset-2 col-lg-8">
+        <div class="panel">
+            <div class="panel-heading bg-olive">
+                <h4 class="panel-title text-center text-white">
+                </h4>
+            </div>
+            <div class="panel-body">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% bootstrap_form category_form %}
+
+                    <button type="submit" class="btn btn-secondary">Обновить данные</button>
+                </form>
+                <br>
+                <br>
+                <br>
+
+
+                    <form action='{% url 'list_meal' %}'>
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-secondary">Изменить еду</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

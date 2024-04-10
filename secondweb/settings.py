@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'testurl',
     'validform',
     'creators',
+    'bootstrap3'
 ]
 
 MIDDLEWARE = [
@@ -137,6 +138,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-LOGIN_REDIRECT_URL='/restaurant/'
+LOGIN_REDIRECT_URL='/creators/'
 # CSRF_TRUSTED_ORIGINS=[""]
 

@@ -1,4 +1,5 @@
-{% extends "home.html" %}
+{% extends "creators/base.html" %}
+{% load bootstrap3 %}
 <head>
     {% block title %}
     <title>Sign up</title>
@@ -19,8 +20,13 @@
         <b class="text-center text-uppercase">
     <form method="post" class="text-center text-uppercase">
         {% csrf_token %}
-        {{ userform.as_p }}
-        {{ restaurantform.as_p }}
+        <br/>
+        <h4>Владелец</h4>
+        {% bootstrap_form userform %}
+        <br/>
+        <h4>Ресторан</h4>
+        {% bootstrap_form restaurantform %}
+        <br/>
         <button type="submit" value="Sign up" class="btn btn-dark btn" >Зарегистрироваться</button>
     </form>
         </b>

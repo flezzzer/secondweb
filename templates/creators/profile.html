@@ -1,0 +1,38 @@
+{% extends "creators/base.html" %}
+{% load bootstrap3 %}
+{% block title %}
+    <title>Profile</title>
+{% endblock %}
+
+{% block auth %}
+{% if user.is_authenticated %}
+        <form action="{% url "creators-logout" %}" class="text-center text-uppercase">
+                {% csrf_token %}
+                <button type="submit" value="logout" class="btn-secondary">Выйти из аккаунта</button>
+        </form>
+        {% endif %}
+{% endblock %}
+{% block page %}
+    <div class="col-lg-offset-2 col-lg-8">
+        <div class="panel">
+            <div class="panel-heading bg-olive">
+                <h4 class="panel-title text-center text-white">
+                    Профиль
+                </h4>
+            </div>
+            <div class="panel-body">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% bootstrap_form user_form %}
+                    {% bootstrap_form restaurant_form %}
+                    <button type="submit" class="btn btn-secondary">Обновить данные</button>
+                </form>
+                <br>
+                    <form action='{% url 'list_category' %}'>
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-secondary">Обновить категории</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

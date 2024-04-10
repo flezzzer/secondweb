@@ -1,0 +1,26 @@
+{% extends 'creators/base.html' %}
+{% block title %}
+    <title>Categorys</title>
+{% endblock %}
+{% block page %}
+     <div class="col-lg-offset-2 col-lg-8">
+        <div class="panel">
+            <div class="panel-heading bg-olive">
+                <h4 class="panel-title text-center text-white">
+
+                </h4>
+            </div>
+            <div class="panel-body">
+                {% for category in categorys %}
+                    <p><a href="{% url 'edit_category' category_name=category.name %}">{{ category.name }}</a></p>
+                {% endfor %}
+            <br>
+             <form action='{% url 'add_category' %}'>
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-secondary">Добавить категории</button>
+                    </form>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

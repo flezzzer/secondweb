@@ -3,14 +3,24 @@
     {% block title %}
     <title>{{ restaurant.name }}</title>
         {% endblock %}
-     <h3> {{ restaurant.name}} </h3>
+     <h2 class="text-center font-monospace"> {{ restaurant.name}} </h2>
         {% if restaurant.id %}
         {% endif %}
-        <div> {{ restaurant.description }}</div>
+        <div class="font-monospace text-black-60 text-decoration-underline"> {{ restaurant.description }}</div>
+    <h2 class="text-center font-monospace"> МЕНЮ </h2>
+    {% for category in categorys %}
         <h4>
-            <a href="{% url 'restaurant:category' restaurant.name category.name  %}">Меню</a>
+        <p class="text-center">
+            <a href="{% url 'restaurant:category' restaurant.name category.name  %}" >{{ category.name }}</a>
+        </p>
         </h4>
+    {% endfor %}
+    <br>
+    <br>
+
+    <p class="text-center">
         <a href="{{ restaurant.url }}"> {{ restaurant.url }}</a>
+    </p>
 {% endblock %}
 <body>
 

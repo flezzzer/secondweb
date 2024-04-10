@@ -12,8 +12,8 @@ def restaurants(request):
 
 def restaurant(request, rest_name):
     restaurant = get_object_or_404(Restaurant,name=rest_name)
-    category = get_object_or_404(CategoryOfMeals, restaurant=restaurant)
-    return render(request, 'restaurants/rest.html', {'restaurant': restaurant,'category':category})
+    categorys = get_list_or_404(CategoryOfMeals, restaurant=restaurant)
+    return render(request, 'restaurants/rest.html', {'restaurant': restaurant,'categorys':categorys})
 
 def category(request,rest_name,category_name):
     restaurant = get_object_or_404(Restaurant, name=rest_name)

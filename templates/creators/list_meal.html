@@ -1,0 +1,27 @@
+{% extends 'creators/base.html' %}
+{% block title %}
+    <title>Meals</title>
+{% endblock %}
+{% block page %}
+     <div class="col-lg-offset-2 col-lg-8">
+        <div class="panel">
+            <div class="panel-heading bg-olive">
+                <h4 class="panel-title text-center text-white">
+
+                </h4>
+            </div>
+            <div class="panel-body">
+                {% for meal in meals %}
+                    <p><a href="{% url 'edit_meal' meal_id=meal.id %}">{{ meal.name }}</a></p>
+                {% endfor %}
+<br>
+
+                    <form action='{% url 'add_meal' %}'>
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-secondary">Добавить еду</button>
+                    </form>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

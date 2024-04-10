@@ -1,4 +1,5 @@
  {% load static %}
+ {% load bootstrap3%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +24,35 @@
   </div>
 </nav>
 {% block page %}
+   <body class="bg-olive">
+        <div class="container"  >
+        <div class="row ">
+        <br/>
+        <br/>
+        <br/>
+        <div class="col-lg-10">
+        <div class="card card-body">
+        <div class="card-body">
+    <h3 class="text-center text-uppercase ">Кто вы?</h3>
+        <b class="text-center text-uppercase">
+        </b>
+        {% buttons %}
+             <form action="{% url 'creators-login' %}" class="text-left">
+
+            <button type="submit" value="Creators" class="btn btn-dark btn; text-center">Владелец ресторана
+            </button>
+             </form>
+            <br/>
+            <form action="{% url "restaurant:restaurants" %}" class="position-absolute right" >
+            <button type="submit" value="Restaurant" class="btn btn-dark btn;text-center">Посетитель ресторана
+            </button>
+            </form>
+        {% endbuttons %}
+    <br/>
+
 {% endblock %}
+
+
 
 
 </html>
