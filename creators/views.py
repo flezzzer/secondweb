@@ -70,6 +70,7 @@ def edit_category(request, category_name):
         category_form = CategoryForm(request.POST,instance=category)
         if(category_form.is_valid()):
             category_form.save()
+            return redirect(list_category)
     return render(request,'creators/edit_category.html',{'category_form':category_form})
 
 @login_required(login_url='/creators/login')
@@ -80,6 +81,7 @@ def edit_meal(request,meal_id):
         meal_form = MealForm(request.POST,request.FILES,instance=meal)
         if(meal_form.is_valid()):
             meal_form.save()
+            return redirect(list_meal)
     return render(request, 'creators/edit_meal.html', {'meal_form': meal_form})
 
 def add_meal(request):

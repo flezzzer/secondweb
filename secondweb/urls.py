@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from restaurant import views
+from creators import api
 
 
 from django.conf.urls.static import static
@@ -28,4 +29,10 @@ urlpatterns = [
     path('',views.home, name='home'),
     path('creators/', include('creators.urls')),
     path('form/',include('validform.urls'),name='form'),
+    path('api/client/restaurants',api.client_get_restaurants),
+    path('api/client/restaurants/<str:restaurant_name>/categorys',api.get_categorys),
+    path('api/client/restaurants/<str:restaurant_name>/<str:category_name>/meal',api.get_meal),
+    # path('auth/social/', include('rest_framework_social_oauth2.urls')),
+    # /convert-token (sign in/sign up)
+    # /revoke-token (sign-out)
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

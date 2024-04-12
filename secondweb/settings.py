@@ -42,7 +42,11 @@ INSTALLED_APPS = [
     'testurl',
     'validform',
     'creators',
-    'bootstrap3'
+    'bootstrap3',
+    # 'oauth2_provider',
+    # 'social_django',
+    # 'rest_framework_social_oauth2',
+    "django_extensions",
 ]
 
 MIDDLEWARE = [
@@ -69,7 +73,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-
+                # 'social_django.context_processors.backends',
+                # 'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -140,4 +145,12 @@ MEDIA_URL = '/media/'
 
 LOGIN_REDIRECT_URL='/creators/'
 # CSRF_TRUSTED_ORIGINS=[""]
+# AUTHENTICATION_BACKENDS = (
+#     'social_core.backends.vk.VKOAuth2',
+#    'rest_framework_social_oauth2.backends.DjangoOAuth2',
+#    'django.contrib.auth.backends.ModelBackend',
+# )
+# SOCIAL_AUTH_VK_OAUTH2_KEY = '51901683'
+# SOCIAL_AUTH_VK_OAUTH2_SECRET = 'zIY6XDGhwqm3qHGzZdfa'
+# SOCIAL_AUTH_VK_OAUTH2_SCOPE = ['email']
 
